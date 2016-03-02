@@ -1,14 +1,15 @@
 # Wear Screenshot Saver
 Wear Screenshot Saver is an app to save a screen shot of the Android Wear.
 
-<a href="https://play.google.com/store/apps/details?id=dream_chaos.java_conf.gr.jp.wearscreenshotsaver&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" /></a>
+<a href="https://play.google.com/store/apps/details?id=dream_chaos.java_conf.gr.jp.wearscreenshotsaver&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" height="50px"/></a>
 # Usage
 1. Select ｢Take wearable screenshot｣ from Android Wear app.
 1. Open ｢Wearable screenshot finished.｣ from notification.
 1. Select this app.
 1. Save screenshot in your screenshot folder.
 
-![screenshot](/screenshots/screenshot1.png)![screenshot](/screenshots/screenshot2.png)
+<img alt="screenshot1" src="/screenshots/screenshot1.png" width="320px"/>
+<img alt="screenshot2" src="/screenshots/screenshot2.png" width="320px"/>
 # License
     Copyright 2016 Chaos Dream Application
 
