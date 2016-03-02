@@ -1,0 +1,17 @@
+*.iml
+
+.gradle
+
+/.idea/copyright
+/.idea/dictionaries
+/.idea/libraries
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+
+/build
+
+/gradle.properties
+/local.properties
+
+.DS_Store
