@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package dream_chaos.java_conf.gr.jp.wearscreenshotsaver;
+package pl.revanmj.wearscreenshotsaver;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -30,6 +30,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
+
+import pl.revanmj.wearscreenshotsaver.R;
 
 public class SaveActivity extends Activity {
     private static final String FILE_NAME = "/Pictures/Screenshots/Screenshot_wear_%s.png";

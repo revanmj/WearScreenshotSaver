@@ -8,7 +8,7 @@ android {
     buildToolsVersion "25.0.3"
 
     defaultConfig {
-        applicationId "dream_chaos.java_conf.gr.jp.wearscreenshotsaver"
+        applicationId "pl.revanmj.wearscreenshotsaver"
         minSdkVersion 19
         targetSdkVersion 22
         versionCode VERSION_CODE
