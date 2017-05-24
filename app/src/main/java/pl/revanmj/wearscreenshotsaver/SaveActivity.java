@@ -19,11 +19,13 @@ package pl.revanmj.wearscreenshotsaver;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.File;
@@ -35,9 +37,7 @@ import pl.revanmj.wearscreenshotsaver.R;
 
 public class SaveActivity extends Activity {
     private static final String FILE_NAME = "/Pictures/Screenshots/Screenshot_wear_%s.png";
-
     private static final String DATE_FORMAT = "yyyyMMdd-kkmmss";
-
     private static final String TAG = SaveActivity.class.getSimpleName();
 
     @Override
@@ -53,7 +53,8 @@ public class SaveActivity extends Activity {
 
     private void saveScreenshot(Uri uri) {
         try {
-            File file = new File(Environment.getExternalStorageDirectory() + String.format(FILE_NAME, getNowDate()));
+            String filePath = Environment.getExternalStorageDirectory() + String.format(FILE_NAME, getNowDate());
+            File file = new File(filePath);
             file.getParentFile().mkdir();
 
             FileOutputStream fileOutputStream = new FileOutputStream(file, true);
@@ -63,6 +64,17 @@ public class SaveActivity extends Activity {
 
             fileOutputStream.flush();
             fileOutputStream.close();
+
+            // Invoke MediaScanner so that screenshot will be quickly visible in gallery apps
+            MediaScannerConnection.scanFile(this,
+                    new String[] { filePath }, null,
+                    new MediaScannerConnection.OnScanCompletedListener() {
+
+                        public void onScanCompleted(String path, Uri uri)
+                        {
+                            Log.i("ScreenshotScanned", "Path[" + path + "], Uri[" + uri + "]");
+                        }
+                    });
 
             Toast.makeText(getApplicationContext(), R.string.message_save, Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
