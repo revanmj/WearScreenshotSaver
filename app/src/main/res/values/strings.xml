@@ -17,6 +17,6 @@
 <resources>
     <string name="app_name" translatable="false">Wear Screenshot Saver</string>
 
-    <string name="message_save">Save screenshot</string>
+    <string name="message_save">Screenshot saved</string>
     <string name="message_error">Error</string>
 </resources>

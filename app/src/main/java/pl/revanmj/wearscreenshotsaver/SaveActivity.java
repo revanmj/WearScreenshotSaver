@@ -66,7 +66,7 @@ public class SaveActivity extends Activity {
             fileOutputStream.close();
 
             // Invoke MediaScanner so that screenshot will be quickly visible in gallery apps
-            MediaScannerConnection.scanFile(this,
+            MediaScannerConnection.scanFile(getApplicationContext(),
                     new String[] { filePath }, null,
                     new MediaScannerConnection.OnScanCompletedListener() {
 
