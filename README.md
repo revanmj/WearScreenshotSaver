@@ -1,3 +1,5 @@
+![build status](https://travis-ci.org/revanmj/WearScreenshotSaver.svg?branch=master)
+
 Purpose of this fork is simple - add MediaScanner invocation after saving screenshot, so that gallery apps will see it quickly without any waiting.
 
 Original README.md can be found here: [https://github.com/KiyohitoNara/WearScreenshotSaver/blob/master/README.md](https://github.com/KiyohitoNara/WearScreenshotSaver/blob/master/README.md)
