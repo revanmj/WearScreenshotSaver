@@ -10,10 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 
 class PermissionActivity : AppCompatActivity() {
+    private var uri : Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        uri = intent.data
         ActivityCompat.requestPermissions(this,
                 arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                 PERMISSION_REQUEST)
@@ -24,9 +26,9 @@ class PermissionActivity : AppCompatActivity() {
         when (requestCode) {
             PERMISSION_REQUEST -> {
                 if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    Toast.makeText(this,
-                            "Permission granted, now save file again", Toast.LENGTH_SHORT).
-                            show()
+                    val saveIntent = Intent(this, SaveActivity::class.java)
+                    saveIntent.putExtra(SaveActivity.KEY_MOVE, true)
+                    startActivity(saveIntent)
                 } else {
                     Toast.makeText(this,
                             getString(R.string.error_permission), Toast.LENGTH_SHORT)
