@@ -29,13 +29,20 @@ import android.util.Log
 import android.widget.Toast
 
 import androidx.core.content.ContextCompat
+
 import java.io.*
 import java.lang.Exception
 import java.nio.channels.FileChannel
-
 import java.util.Calendar
 
 class SaveActivity : Activity() {
+    companion object {
+        private val TAG = SaveActivity::class.java.simpleName
+        private const val PICTURES_FILE = "/Pictures/Screenshots/Screenshot_wear_%s.png"
+        private const val TEMP_FILE = "/temp.png"
+        private const val DATE_FORMAT = "yyyyMMdd-kkmmss"
+        const val KEY_MOVE = "moveFile"
+    }
 
     private val nowDate: String
         get() = DateFormat.format(DATE_FORMAT, Calendar.getInstance()).toString()
@@ -76,7 +83,7 @@ class SaveActivity : Activity() {
                                     + String.format(PICTURES_FILE, nowDate))
 
                 val file = File(filePath)
-                file.parentFile.mkdir()
+                file.parentFile?.mkdir()
 
                 val fileOutputStream = FileOutputStream(file, false)
                 val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, uri)
@@ -107,7 +114,7 @@ class SaveActivity : Activity() {
         try {
             outputChannel = FileOutputStream(newFile).channel
             inputChannel = FileInputStream(tempFile).channel
-            inputChannel!!.transferTo(0, inputChannel.size(), outputChannel)
+            inputChannel.transferTo(0, inputChannel.size(), outputChannel)
             inputChannel.close()
             tempFile.delete()
             Toast.makeText(applicationContext, R.string.message_save, Toast.LENGTH_SHORT).show()
@@ -118,13 +125,5 @@ class SaveActivity : Activity() {
             inputChannel?.close()
             outputChannel?.close()
         }
-    }
-
-    companion object {
-        private const val PICTURES_FILE = "/Pictures/Screenshots/Screenshot_wear_%s.png"
-        private const val TEMP_FILE = "/temp.png"
-        private const val DATE_FORMAT = "yyyyMMdd-kkmmss"
-        private val TAG = SaveActivity::class.java.simpleName
-        public const val KEY_MOVE = "moveFile"
     }
 }
