@@ -1,4 +1,4 @@
-![build status](https://travis-ci.org/revanmj/WearScreenshotSaver.svg?branch=master)
+![Android CI](https://github.com/revanmj/WearScreenshotSaver/workflows/Android%20CI/badge.svg)
 
 Purpose of this fork is simple - add MediaScanner invocation after saving screenshot, so that gallery apps will see it quickly without any waiting.
 
